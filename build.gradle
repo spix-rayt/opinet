@@ -1,0 +1,41 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+    id 'com.vaadin' version '0.8.0'
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'idea'
+}
+
+group 'io.spixy.opinet'
+version '1.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+vaadin {
+    pnpmEnable = true
+}
+
+idea {
+    module {
+        excludeDirs = [file("node_modules")]
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+    compile group: 'com.vaadin', name: 'vaadin-bom', version: '14.3.3', ext: 'pom'
+    compile group: 'com.vaadin', name: 'vaadin-spring-boot-starter', version: '14.3.3'
+
+    compile group: 'io.github.microutils', name: 'kotlin-logging', version: '1.8.3'
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+}
