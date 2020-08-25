@@ -3,5 +3,7 @@ node_modules/
 build/
 target/
 .gradle/
+out/
 webpack.generated.js
 pnpmfile.js
+*.sqlite

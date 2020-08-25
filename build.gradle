@@ -8,8 +8,6 @@ plugins {
 
 group 'io.spixy.opinet'
 version '1.0-SNAPSHOT'
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
 
 vaadin {
     pnpmEnable = true
@@ -28,10 +26,18 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
 
-    compile group: 'com.vaadin', name: 'vaadin-bom', version: '14.3.3', ext: 'pom'
-    compile group: 'com.vaadin', name: 'vaadin-spring-boot-starter', version: '14.3.3'
+    implementation group: 'com.vaadin', name: 'vaadin-bom', version: '14.3.3', ext: 'pom'
+    implementation group: 'com.vaadin', name: 'vaadin-spring-boot-starter', version: '14.3.3'
 
-    compile group: 'io.github.microutils', name: 'kotlin-logging', version: '1.8.3'
+    implementation group: 'io.github.microutils', name: 'kotlin-logging', version: '1.8.3'
+
+    implementation 'org.jetbrains.exposed:exposed:0.17.7'
+
+    implementation 'org.springframework.security:spring-security-web'
+    implementation 'org.springframework.security:spring-security-config'
+
+    compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.32.3.2'
+
 }
 
 compileKotlin {
